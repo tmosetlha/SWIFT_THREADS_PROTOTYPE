@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Swift Threads — Delivery, Reimagined | BTM²</title>
+<meta name="description" content="Swift Threads — an Uber-style delivery platform connecting customers and drivers in one continuous, live-tracked flow. A metallic, futuristic prototype by BTM² — Bokgabo Mohlala & Tshiamo Mosetlha." />
+<meta name="theme-color" content="#04070f" />
+<meta name="color-scheme" content="dark" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PHJlY3Qgd2lkdGg9JzY0JyBoZWlnaHQ9JzY0JyByeD0nMTQnIGZpbGw9JyMwNDA3MGYnLz48Y2lyY2xlIGN4PSczMicgY3k9JzMyJyByPScyMicgZmlsbD0nbm9uZScgc3Ryb2tlPScjMzhiZGY4JyBzdHJva2Utd2lkdGg9JzInIG9wYWNpdHk9JzAuOScvPjxjaXJjbGUgY3g9JzMyJyBjeT0nMzInIHI9JzUnIGZpbGw9JyMzOGJkZjgnLz48L3N2Zz4=" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ==================== SPLASH ==================== -->
+<div class="splash" id="splash" role="status" aria-live="polite" aria-label="Loading Swift Threads">
+  <div class="splash__grid" aria-hidden="true"></div>
+  <div class="splash__glow" aria-hidden="true"></div>
+
+  <div class="splash__inner">
+    <div class="splash__badge" id="splashBadge" aria-hidden="true">
+      <span class="splash__ring splash__ring--1"></span>
+      <span class="splash__ring splash__ring--2"></span>
+      <span class="splash__ring splash__ring--3"></span>
+      <span class="splash__core"></span>
+    </div>
+
+    <p class="splash__brand" id="splashBrand">BTM<sup>2</sup></p>
+    <h1 class="splash__title" id="splashTitle">SWIFT THREADS</h1>
+    <p class="splash__welcome" id="splashWelcome">Welcome — initialising your delivery network</p>
+
+    <div class="splash__bar" id="splashBar">
+      <span class="splash__bar-fill" id="splashBarFill"></span>
+    </div>
+    <p class="splash__pct" id="splashPct">0%</p>
+  </div>
+
+  <p class="splash__foot" id="splashFoot">Bokgabo Mohlala &nbsp;·&nbsp; Tshiamo Mosetlha</p>
+</div>
+
+<!-- ==================== SITE ==================== -->
+<div class="site" id="site" aria-hidden="true">
+
+  <!-- ---------- NAV ---------- -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__mark">
+        <span class="nav__logo" aria-hidden="true">
+          <span class="nav__logo-core"></span>
+        </span>
+        <span class="nav__name">Swift Threads</span>
+        <span class="nav__by">BTM<sup>2</sup></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#features" class="nav__link">Platform</a>
+        <a href="#flow" class="nav__link">How it works</a>
+        <a href="#modules" class="nav__link">Apps</a>
+        <a href="#difference" class="nav__link">Why us</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="btn btn--ghost" data-auth-open="login">Log in</button>
+        <button class="btn btn--primary" data-auth-open="register">Get started</button>
+      </div>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ---------- HERO ---------- -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero__orb hero__orb--a" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--b" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="eyebrow" data-hero>Phase 01 · Core delivery build</p>
+
+        <h1 class="hero__title">
+          <span class="hero__line" data-hero>Delivery,</span>
+          <span class="hero__line hero__line--metal" data-hero>reimagined for 2026.</span>
+        </h1>
+
+        <p class="hero__sub" data-hero>
+          Swift Threads connects a customer who needs something delivered with a driver who
+          can deliver it — one continuous, live-tracked flow. Uber-simple on the surface,
+          purpose-built underneath.
+        </p>
+
+        <div class="hero__cta" data-hero>
+          <button class="btn btn--primary btn--lg" data-auth-open="register">Create account</button>
+          <button class="btn btn--glass btn--lg" data-auth-open="login">I already have one</button>
+        </div>
+
+        <div class="hero__pills" data-hero>
+          <span class="pill">Customer</span>
+          <span class="pill pill__sep">·</span>
+          <span class="pill">Driver</span>
+          <span class="pill pill__sep">·</span>
+          <span class="pill">One system</span>
+        </div>
+      </div>
+
+      <!-- floating device / live-track card -->
+      <div class="hero__panel" data-hero-panel aria-hidden="true">
+        <div class="track">
+          <div class="track__top">
+            <span class="track__badge">LIVE</span>
+            <span class="track__eta">ETA 6 min</span>
+          </div>
+          <div class="track__map">
+            <span class="track__route"></span>
+            <span class="track__pin track__pin--shop">A</span>
+            <span class="track__pin track__pin--you">B</span>
+            <span class="track__driver" id="trackDriver"></span>
+          </div>
+          <div class="track__driver-row">
+            <span class="track__avatar"></span>
+            <div class="track__meta">
+              <strong>Kabelo M.</strong>
+              <span>★ 4.9 · Toyota Corolla</span>
+            </div>
+            <span class="track__status">On the way</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- STATS ---------- -->
+    <section class="stats" aria-label="At a glance">
+      <div class="stats__inner">
+        <div class="stat glass" data-reveal>
+          <span class="stat__value" data-count="3">3</span>
+          <span class="stat__label">Apps, one platform</span>
+        </div>
+        <div class="stat glass" data-reveal>
+          <span class="stat__value" data-count="7">7</span>
+          <span class="stat__label">Steps, request to delivery</span>
+        </div>
+        <div class="stat glass" data-reveal>
+          <span class="stat__value" data-count="30" data-suffix="%">30%</span>
+          <span class="stat__label">Driver monthly bonus</span>
+        </div>
+        <div class="stat glass" data-reveal>
+          <span class="stat__value">Live</span>
+          <span class="stat__label">Uber-style tracking</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- FEATURES ---------- -->
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow">The platform</p>
+        <h2 id="features-title">Everything a modern delivery network needs</h2>
+        <p class="section__intro">Built around trust, speed and transparency — the same feel you expect from any leading delivery app, engineered specifically for Swift Threads.</p>
+      </div>
+
+      <div class="features">
+        <article class="feature glass" data-reveal>
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+          <h3>Live order tracking</h3>
+          <p>Watch the driver move on the map in real time, from pickup to your door — simple, clear, transparent.</p>
+        </article>
+
+        <article class="feature glass" data-reveal>
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="m12 3 2.5 5.2 5.7.8-4.1 4 1 5.7L12 22l-5.1-3.3 1-5.7-4.1-4 5.7-.8L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>3-way rating system</h3>
+          <p>Customers, drivers and shops rate each other. Trust flows both ways and feeds straight back into matching.</p>
+        </article>
+
+        <article class="feature glass" data-reveal>
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <h3>AI smart matching</h3>
+          <p>Jobs are assigned by location and workload — not just first-come — with predictive ETAs and fraud detection.</p>
+        </article>
+
+        <article class="feature glass" data-reveal>
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 18V9m5 9V5m5 13v-6m5 6V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Driver earnings dashboard</h3>
+          <p>Per-km earnings, a 30% monthly bonus, and streak perks that reward consistency — not just volume.</p>
+        </article>
+
+        <article class="feature glass" data-reveal>
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 10h18M7 15h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Flexible checkout</h3>
+          <p>Pay by card, EFT, or mobile wallet. Loyalty points earned and redeemed on every purchase and referral.</p>
+        </article>
+
+        <article class="feature glass" data-reveal>
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 4 6v6c0 5 3.4 8 8 10 4.6-2 8-5 8-10V6l-8-4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Secured end-to-end</h3>
+          <p>HTTPS and role-based access on every request, with proof of delivery by photo, PIN, or signature.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ---------- FLOW ---------- -->
+    <section class="section section--flow" id="flow" aria-labelledby="flow-title">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow">How it works</p>
+        <h2 id="flow-title">One delivery, start to finish</h2>
+        <p class="section__intro">Seven steps. Two sides of the marketplace, one continuous system — the path every order takes.</p>
+      </div>
+
+      <ol class="flow">
+        <li class="flow__step glass" data-reveal>
+          <span class="flow__num">01</span>
+          <span class="tag tag--customer">Customer</span>
+          <h3>Request</h3>
+          <p>Sign up with phone or email and request a delivery — paying by card, EFT, or wallet.</p>
+        </li>
+        <li class="flow__step glass" data-reveal>
+          <span class="flow__num">02</span>
+          <span class="tag tag--system">System · AI</span>
+          <h3>Match</h3>
+          <p>The engine finds the best available driver, weighing location and workload.</p>
+        </li>
+        <li class="flow__step glass" data-reveal>
+          <span class="flow__num">03</span>
+          <span class="tag tag--driver">Driver</span>
+          <h3>Navigate</h3>
+          <p>Turn-by-turn navigation to the pickup point, then on to drop-off.</p>
+        </li>
+        <li class="flow__step glass" data-reveal>
+          <span class="flow__num">04</span>
+          <span class="tag tag--customer">Customer</span>
+          <h3>Track live</h3>
+          <p>Follow the driver's location on the map in real time — like ride-hailing.</p>
+        </li>
+        <li class="flow__step glass" data-reveal>
+          <span class="flow__num">05</span>
+          <span class="tag tag--driver">Driver</span>
+          <h3>Confirm</h3>
+          <p>Closed out with proof — a photo, PIN code, or signature.</p>
+        </li>
+        <li class="flow__step glass" data-reveal>
+          <span class="flow__num">06</span>
+          <span class="tag tag--system">Both sides</span>
+          <h3>Rate</h3>
+          <p>Each side rates the experience, feeding future matching and incentives.</p>
+        </li>
+        <li class="flow__step glass flow__step--wide" data-reveal>
+          <span class="flow__num">07</span>
+          <span class="tag tag--admin">Admin</span>
+          <h3>Oversee</h3>
+          <p>Every order, rating and payout lands on the admin dashboard — full end-to-end visibility with reporting on performance and delivery times.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ---------- MODULES ---------- -->
+    <section class="section" id="modules" aria-labelledby="modules-title">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow">The apps</p>
+        <h2 id="modules-title">Built for every side of the trip</h2>
+        <p class="section__intro">Customer, Driver and Admin ship in Phase 1. Shop / Seller unlocks in Phase 3, once direct store integration begins.</p>
+      </div>
+
+      <div class="modules glass" data-reveal>
+        <div class="modules__tabs" role="tablist" aria-label="Platform apps">
+          <button class="modules__tab is-active" role="tab" aria-selected="true" data-target="customer">Customer</button>
+          <button class="modules__tab" role="tab" aria-selected="false" data-target="driver">Driver</button>
+          <button class="modules__tab" role="tab" aria-selected="false" data-target="admin">Admin</button>
+          <button class="modules__tab modules__tab--ghost" role="tab" aria-selected="false" data-target="shop">Shop <span class="tag tag--phase">Phase 3</span></button>
+        </div>
+
+        <div class="modules__panel is-active" data-panel="customer">
+          <ul class="checklist">
+            <li>Onboarding — sign up with phone or email, verify identity</li>
+            <li>Cart &amp; checkout — card, EFT, or mobile wallet</li>
+            <li>Live order tracking — Uber-style until delivery</li>
+            <li>Ratings &amp; reviews — rate the driver and experience</li>
+            <li>Order history &amp; quick reorder</li>
+            <li>Loyalty points — earn and redeem on purchases &amp; referrals</li>
+          </ul>
+        </div>
+        <div class="modules__panel" data-panel="driver" hidden>
+          <ul class="checklist">
+            <li>Onboarding &amp; verification — ID, licence, vehicle documents</li>
+            <li>Job requests — clear pickup and drop-off locations</li>
+            <li>Navigation — integrated maps with live directions</li>
+            <li>Proof of delivery — photo, PIN code, or signature</li>
+            <li>Earnings dashboard — per-km + 30% monthly bonus</li>
+            <li>Incentives — priority jobs from high ratings &amp; streaks</li>
+          </ul>
+        </div>
+        <div class="modules__panel" data-panel="admin" hidden>
+          <ul class="checklist">
+            <li>Dashboard — real-time overview of drivers, customers &amp; orders</li>
+            <li>Order management — track every delivery end-to-end</li>
+            <li>Driver management — approve, track ratings and payments</li>
+            <li>Payments &amp; payouts — handle escrow and releases</li>
+            <li>Analytics — revenue, delivery times, customer trends</li>
+            <li>AI tools — smart matching, fraud detection, predictive ETAs</li>
+          </ul>
+        </div>
+        <div class="modules__panel" data-panel="shop" hidden>
+          <div class="modules__phase">
+            <span class="tag tag--phase">Phase 3</span>
+            <p>Activates once direct store integration begins — the storefront plugs into the core delivery platform once both are ready.</p>
+          </div>
+          <ul class="checklist">
+            <li>Onboarding &amp; KYC — register shop, upload documents &amp; banking</li>
+            <li>Product management — upload products, stock, prices</li>
+            <li>Order dashboard — incoming orders, prep status, pickups</li>
+            <li>Payout dashboard — sales, commission, payouts</li>
+            <li>Storefront profile — logo, bio, featured products</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- DIFFERENCE ---------- -->
+    <section class="section" id="difference" aria-labelledby="diff-title">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow">Why Swift Threads</p>
+        <h2 id="diff-title">What sets it apart</h2>
+      </div>
+
+      <div class="diff">
+        <div class="diff__card glass" data-reveal>
+          <h3>Live tracking, kept simple</h3>
+          <p>One clear view of the driver's progress — nothing extra to figure out.</p>
+        </div>
+        <div class="diff__card glass" data-reveal>
+          <h3>Driver incentives</h3>
+          <p>Per-km earnings, a 30% monthly bonus, and streak-based perks.</p>
+        </div>
+        <div class="diff__card glass" data-reveal>
+          <h3>AI matching</h3>
+          <p>Preferred drivers and smart order grouping, powered by AI services.</p>
+        </div>
+        <div class="diff__card glass" data-reveal>
+          <h3>Built in phases</h3>
+          <p>A stable, well-tested core first — expansion slots in without a rebuild.</p>
+        </div>
+      </div>
+
+      <div class="cta glass" data-reveal>
+        <h2>Ready to move?</h2>
+        <p>Join the Swift Threads network — as a customer or a driver.</p>
+        <div class="cta__btns">
+          <button class="btn btn--primary btn--lg" data-auth-open="register">Create your account</button>
+          <button class="btn btn--glass btn--lg" data-auth-open="login">Log in</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ---------- FOOTER ---------- -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo" aria-hidden="true"><span class="nav__logo-core"></span></span>
+        <div>
+          <p class="footer__name">Swift Threads</p>
+          <p class="footer__tag">Customer · Driver · One system</p>
+        </div>
+      </div>
+      <div class="footer__by">
+        <p class="footer__squared">BTM<sup>2</sup></p>
+        <p class="footer__members">Bokgabo Mohlala &amp; Tshiamo Mosetlha</p>
+        <p class="footer__note">Prototype · Phase 01 · No backend yet</p>
+      </div>
+    </div>
+    <p class="footer__copy">© 2026 Swift Threads — a BTM² build. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- ==================== AUTH MODAL ==================== -->
+<div class="modal" id="authModal" aria-hidden="true">
+  <div class="modal__overlay" data-auth-close></div>
+
+  <div class="modal__dialog glass" role="dialog" aria-modal="true" aria-labelledby="authTitle" id="authDialog">
+    <button class="modal__close" data-auth-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="modal__brand">
+      <span class="nav__logo" aria-hidden="true"><span class="nav__logo-core"></span></span>
+      <span>Swift Threads <em>BTM<sup>2</sup></em></span>
+    </div>
+
+    <div class="modal__tabs" role="tablist" aria-label="Authentication">
+      <button class="modal__tab is-active" id="tabLogin" role="tab" aria-selected="true" data-auth-tab="login">Log in</button>
+      <button class="modal__tab" id="tabRegister" role="tab" aria-selected="false" data-auth-tab="register">Register</button>
+      <span class="modal__tab-glow" id="tabGlow" aria-hidden="true"></span>
+    </div>
+
+    <!-- LOGIN -->
+    <form class="authform is-active" id="formLogin" data-auth-form="login" novalidate>
+      <h2 id="authTitle" class="authform__title">Welcome back</h2>
+      <p class="authform__sub">Log in to track deliveries in real time.</p>
+
+      <label class="field">
+        <span class="field__label">Email</span>
+        <input type="email" name="email" class="field__input" placeholder="you@example.com" autocomplete="email" required />
+        <span class="field__error" data-error></span>
+      </label>
+
+      <label class="field">
+        <span class="field__label">Password</span>
+        <input type="password" name="password" class="field__input" placeholder="••••••••" autocomplete="current-password" required minlength="6" />
+        <span class="field__error" data-error></span>
+      </label>
+
+      <div class="field__row">
+        <label class="check"><input type="checkbox" name="remember" /> <span>Remember me</span></label>
+        <a href="#" class="link" onclick="return false">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--full">Log in</button>
+      <p class="authform__swap">New to Swift Threads? <button type="button" class="link" data-auth-tab="register">Create an account</button></p>
+    </form>
+
+    <!-- REGISTER -->
+    <form class="authform" id="formRegister" data-auth-form="register" novalidate hidden>
+      <h2 class="authform__title">Create your account</h2>
+      <p class="authform__sub">Join as a customer or a driver.</p>
+
+      <div class="segment" role="radiogroup" aria-label="Account type">
+        <label class="segment__opt is-active">
+          <input type="radio" name="role" value="customer" checked />
+          <span>Customer</span>
+        </label>
+        <label class="segment__opt">
+          <input type="radio" name="role" value="driver" />
+          <span>Driver</span>
+        </label>
+      </div>
+
+      <label class="field">
+        <span class="field__label">Full name</span>
+        <input type="text" name="name" class="field__input" placeholder="Your name" autocomplete="name" required />
+        <span class="field__error" data-error></span>
+      </label>
+
+      <label class="field">
+        <span class="field__label">Email</span>
+        <input type="email" name="email" class="field__input" placeholder="you@example.com" autocomplete="email" required />
+        <span class="field__error" data-error></span>
+      </label>
+
+      <label class="field">
+        <span class="field__label">Phone</span>
+        <input type="tel" name="phone" class="field__input" placeholder="+27 ..." autocomplete="tel" required />
+        <span class="field__error" data-error></span>
+      </label>
+
+      <label class="field">
+        <span class="field__label">Password</span>
+        <input type="password" name="password" class="field__input" placeholder="Create a password" autocomplete="new-password" required minlength="6" />
+        <span class="field__error" data-error></span>
+      </label>
+
+      <label class="check check--terms"><input type="checkbox" name="terms" required /> <span>I agree to the Terms &amp; Privacy Policy</span></label>
+
+      <button type="submit" class="btn btn--primary btn--full">Create account</button>
+      <p class="authform__swap">Already have an account? <button type="button" class="link" data-auth-tab="login">Log in</button></p>
+    </form>
+
+    <!-- SUCCESS -->
+    <div class="authform__done" id="authDone" hidden>
+      <span class="authform__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4.5 4.5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <h2 id="doneTitle">You're in</h2>
+      <p id="doneMsg">This is a front-end prototype — no data was sent anywhere.</p>
+      <button type="button" class="btn btn--glass btn--full" data-auth-close>Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
